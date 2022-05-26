@@ -9,3 +9,4 @@ To Do:
 - Balance Tree
 - Search
 - Remove Node
+- Vizualise Tree
