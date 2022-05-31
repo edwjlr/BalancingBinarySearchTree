@@ -1,12 +1,12 @@
 # BST Tree
-Implemented:
-- InOrder Traversal
-- PreOrder Traversal
-- PostOrder Traversal
-- InsertNode
+Functions:
+- void PreOrderTraversal(class Node* node)
+- void InOrderTraversal(class Node* node)
+- void PostOrderTraversal(class Node* node)
+- Node* InsertNode(class Node* node, int input)
   
-To Do:
-- Remove Node
+To Implement:
+- Node* SearchNode(class Node* node, int input, class Node* temp)
+- Node* RemoveNode(class Node* node, int input)
 - Balance Tree
-- Search
 - Vizualise Tree
