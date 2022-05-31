@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 
 //class binary tree node, also creates nodes
 class Node{
@@ -20,7 +19,7 @@ void PreOrderTraversal(class Node* node){
 		return;
 	}
 	
-	cout << node->data << " ";
+	std::cout << node->data << " ";
 	PreOrderTraversal(node->left);
 	PreOrderTraversal(node->right);
 }
@@ -31,7 +30,7 @@ void InOrderTraversal(class Node* node){
 	}
 	
 	InOrderTraversal(node->left);
-	cout << node->data << " ";
+	std::cout << node->data << " ";
 	InOrderTraversal(node->right);
 }
 
@@ -42,7 +41,7 @@ void PostOrderTraversal(class Node* node){
 	
 	PostOrderTraversal(node->left);
 	PostOrderTraversal(node->right);
-	cout << node->data << " ";
+	std::cout << node->data << " ";
 }
 
 Node* InsertNode(class Node* nodeMarker, int input){
@@ -68,9 +67,9 @@ int main(){
 	InsertNode(root, 4);
 	
 	InOrderTraversal(root);
-	cout << endl;
+	std::cout << std::endl;
 	PreOrderTraversal(root);
-	cout << endl;
+	std::cout << std::endl;
 	PostOrderTraversal(root);
 	
 return 0;
