@@ -6,7 +6,7 @@ Implemented:
 - InsertNode
   
 To Do:
+- Remove Node
 - Balance Tree
 - Search
-- Remove Node
 - Vizualise Tree
