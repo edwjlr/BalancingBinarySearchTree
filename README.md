@@ -8,13 +8,10 @@ Functions:
 - bool Search(int);
 - int Height(int);
   
-To Implement:
-- void Balance();
-- void Vizualize();
-
 Classes:
 - Node
 - Tree
 
 To-Do (Priority 1-3)
-- (2) Implement Remaining functions
+- void Balance();
+- void Vizualize();
