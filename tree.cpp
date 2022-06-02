@@ -6,40 +6,40 @@ Tree::Tree(){
 
 Tree::~Tree(){
 	while(root!= nullptr){
-		RemoveNode(root, root->getData());
+		Remove(root, root->getData());
 	}
     delete root;
 }
 
 void Tree::PreOrderTraversal(){
-	if(root == nullptr){
+	if (root == nullptr){
 		std::cout << "Empty Tree";
 	}else{
-		PreOrderTraversal(this->root);
+		PreOrderTraversal(root);
 	}
 	return;
 }
 
 void Tree::InOrderTraversal(){
-	if(root == nullptr){
+	if (root == nullptr){
 		std::cout << "Empty Tree";
 	}else{
-		InOrderTraversal(this->root);
+		InOrderTraversal(root);
 	}
 	return;
 }
 
 void Tree::PostOrderTraversal(){
-	if(root == nullptr){
+	if (root == nullptr){
 		std::cout << "Empty Tree";
 	}else{
-		PostOrderTraversal(this->root);
+		PostOrderTraversal(root);
 	}
 	return;
 }
 
 void Tree::PreOrderTraversal(Node *node){
-	if(node == nullptr){
+	if (node == nullptr){
 		return;
 	}
 
@@ -50,7 +50,7 @@ void Tree::PreOrderTraversal(Node *node){
 }
 
 void Tree::InOrderTraversal(Node *node){
-	if(node == nullptr){
+	if (node == nullptr){
 		return;
 	}
 	
@@ -61,7 +61,7 @@ void Tree::InOrderTraversal(Node *node){
 }
 
 void Tree::PostOrderTraversal(Node *node){
-	if(node == nullptr){
+	if (node == nullptr){
 		return;
 	}
 	
@@ -79,7 +79,7 @@ Node *Tree::Insert(Node *node, int input){
     //base case: at empty node
 	if (node == nullptr){
 		node = new Node(input);
-		if(root == nullptr){
+		if (root == nullptr){
 		    root = node;
         }
     }
@@ -98,11 +98,11 @@ Node *Tree::Insert(Node *node, int input){
 	return node;
 }
 
-void Tree::RemoveNode(int input){
-	RemoveNode(root, input);
+void Tree::Remove(int input){
+	Remove(root, input);
 }
 
-void Tree::RemoveNode(Node *node, int input){
+void Tree::Remove(Node *node, int input){
     //base case: empty node
 	if (node == nullptr){
 		free(node);
@@ -113,11 +113,11 @@ void Tree::RemoveNode(Node *node, int input){
 		//case 1, no children
 		if (node->left == nullptr && node->right == nullptr){
             //case 1: node is root
-			if(node->parent == nullptr){
+			if (node->parent == nullptr){
 				root = nullptr;
 			}
             //case 2: node is right child
-			else if(node->parent->right == node){
+			else if (node->parent->right == node){
 				node->parent->right = nullptr;
             }
             //case 3: node is left child
@@ -136,7 +136,7 @@ void Tree::RemoveNode(Node *node, int input){
             //case 1: removing root node
 			if (node->parent == nullptr){
                 //set correct child to root and remove parent pointer
-				if(node->left != nullptr){
+				if (node->left != nullptr){
 					root = node->left;
                     root->parent = nullptr;
 				}else{
@@ -145,11 +145,11 @@ void Tree::RemoveNode(Node *node, int input){
 				}
 			}
             //case 2: left is the only child
-			else if(node->left != nullptr ){
+			else if (node->left != nullptr ){
                 //set child's parent to node's parent
 				node->left->parent = node->parent;
                 //set node parent to point to nodes only child instead of node
-				if(node->parent->right == node){
+				if (node->parent->right == node){
 					node->parent->right = node->left;
 				}else{
 					node->parent->left = node->left;
@@ -160,7 +160,7 @@ void Tree::RemoveNode(Node *node, int input){
                 //set child parent to node's parent
 				node->right->parent = node->parent;
                 //set parent child to nodes child
-				if(node->parent->right == node){
+				if (node->parent->right == node){
 					node->parent->right = node->right;
 				}else{
 					node->parent->left = node->right;
@@ -169,7 +169,7 @@ void Tree::RemoveNode(Node *node, int input){
 			free (node);
 //			return;
 
-		//case 3, 2 children - makes RemoveNode into case 1 or case 2
+		//case 3, 2 children - makes Remove into case 1 or case 2
 		}else if ((node->left!=nullptr) && (node->right!=nullptr)){
 			//find successor node->right->->->left
 			Node *temp = node->right;
@@ -179,16 +179,41 @@ void Tree::RemoveNode(Node *node, int input){
             //replace node to delete data with successor
             node->setData(temp->getData());
             //call remove on successor
-            //RemoveNode will take care  of freeing *temp
-			RemoveNode(temp, temp->getData());
+            //Remove will take care  of freeing *temp
+			Remove(temp, temp->getData());
 //			return;
 		}
     //case 2: value to remove is less than that of current node
 	}else if (input < node->getData()){
-		RemoveNode(node->left, input);
+		Remove(node->left, input);
     //case 3: value to remove is greater than that of current node
 	}else if (input > node->getData()){
-		RemoveNode(node->right, input);
+		Remove(node->right, input);
 	}
     return;
+}
+
+bool Tree::Search(int value){
+   return Search(root, value);
+}
+
+bool Tree::Search(Node *node, int value){
+    //Base case: not correct node
+    if (node == nullptr){
+        return false;
+    }
+    //case 1: found correct node
+    else if (node->getData() == value){
+        return true;
+    }
+    //case 2: value < node's value
+    else if (value < node->getData() && node->left != nullptr){
+        return Search(node->left, value);
+    }
+    //case 3: value > node's value
+    else if (value > node->getData() && node->right != nullptr){
+        return Search(node->right, value);
+
+    }
+    return false;
 }

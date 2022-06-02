@@ -5,9 +5,9 @@ Functions:
 - void PostOrderTraversal();
 - void Insert(int);
 - void RemoveNode(int);
+- bool Search(int);
   
 To Implement:
-- void Search(int input);
 - void Balance();
 - void Vizualize();
 - int height(int);

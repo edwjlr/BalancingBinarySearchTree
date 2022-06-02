@@ -9,7 +9,8 @@ class Tree{
 		void InOrderTraversal();
 		void PostOrderTraversal();
 		void Insert(int);
-		void RemoveNode(int);
+		void Remove(int);
+		bool Search(int);
         Tree();
         ~Tree();
 
@@ -20,7 +21,8 @@ class Tree{
 		void InOrderTraversal(Node *);
 		void PostOrderTraversal(Node *);
 		Node *Insert(Node *, int);
-		void RemoveNode(Node *, int);
+		void Remove(Node *, int);
+		bool Search(Node *, int);
 };
 
 #endif
