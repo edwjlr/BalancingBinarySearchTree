@@ -16,4 +16,4 @@ Classes:
 
 To-Do (Priority 1-3)
 - clean Balance function
-- void Vizualize();
+- edit main to build tree on user inputs
