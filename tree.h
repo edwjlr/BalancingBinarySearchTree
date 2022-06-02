@@ -2,6 +2,7 @@
 #define TREE_H
 
 #include "node.h"
+#include <vector>
 
 class Tree{
     public:
@@ -12,6 +13,11 @@ class Tree{
 		void Remove(int);
 		bool Search(int);
 		int Height(int);
+		void Balance();
+		int getRoot(){
+			return root->getData();
+		}
+		void Display();
         Tree();
         ~Tree();
 
@@ -26,6 +32,9 @@ class Tree{
 		bool Search(Node *, int);
 		int Height(Node *);
 		Node *SearchNode(Node *, int);
+		void BuildVector(Node *, std::vector<int> &);
+		void BalanceTree(std::vector<int> &, int, int);
+		void Display(int , Node *);
 };
 
 #endif

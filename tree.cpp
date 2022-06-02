@@ -256,3 +256,61 @@ int Tree::Height(Node *node){
         return std::max(leftHeight, rightHeight) + 1;
     }
 }
+
+void Tree::BuildVector(Node *node, std::vector<int> &nodesVector){
+	if (node == nullptr){
+		return;
+	}
+	
+	// recur left subtree -> pushback node -> recur right subtree
+	BuildVector(node->left, nodesVector);
+	nodesVector.push_back(node->getData());
+	BuildVector(node->right, nodesVector);
+}
+
+ void Tree::BalanceTree(std::vector<int> &nodesVector, int start, int end){
+    //base case
+    if (start > end){
+        return;
+    }
+	
+    //make middle node root
+    int mid = (start + end)/2;
+    Insert(nodesVector[mid]);
+
+    BalanceTree(nodesVector, start, mid-1);
+    BalanceTree(nodesVector, mid+1, end);
+}
+
+void Tree::Balance(){
+    std::vector<int> nodesVector;
+    BuildVector(root, nodesVector);
+	while(root!= nullptr){
+		Remove(root, root->getData());
+	}
+
+    int end = nodesVector.size() - 1;
+    BalanceTree(nodesVector, 0, end);
+}
+
+void Tree::Display(){
+	Display(1, root);
+}
+
+void Tree::Display(int level, Node *node){
+	int i;
+	if (node != NULL)
+	{
+		Display(level + 1, node->right);
+		std::cout << std::endl;
+		if (node == root)
+			std::cout << "Root -> ";
+		for (i = 0; i < level && node != root; i++)
+			std::cout << "        ";
+		std::cout << node->getData() << '(';
+		if(node != root && node->parent != nullptr)
+			std::cout << node->parent->getData();
+		std::cout << ')';
+		Display(level + 1, node->left);
+	}
+}

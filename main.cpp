@@ -21,18 +21,34 @@ int main(){
 	// tree.Remove(7);
 	
 	//Print Tree Traversal
-	std::cout << "InOrder Traversal: ";
-	tree.InOrderTraversal();
+	// std::cout << "InOrder Traversal: ";
+	// tree.InOrderTraversal();
 	std::cout << std::endl << "PreOrder Traversal: ";
 	tree.PreOrderTraversal();
-	std::cout << std::endl << "PostOrder Traversal: ";
-	tree.PostOrderTraversal();
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
+	// std::cout << std::endl << "PostOrder Traversal: ";
+	// tree.PostOrderTraversal();
+	// std::cout << std::endl;
 
-	//Searching for value
-	std::cout << "Search: " << tree.Search(20) << std::endl;
+	// //Searching for value
+	// std::cout << "Search: " << tree.Search(20) << std::endl;
 
-	std::cout << "Height: " << tree.Height(8) << std::endl;
+	// std::cout << "Height: " << tree.Height(8) << std::endl;
+
+
+	std::cout << "Root: " << tree.getRoot() << std::endl;
+	tree.Balance();
+	std::cout << "Root: " << tree.getRoot() << std::endl;
+
+	//Print Tree Traversal
+	// std::cout << "InOrder Traversal: ";
+	// tree.InOrderTraversal();
+	std::cout << std::endl << "PreOrder Traversal: ";
+	tree.PreOrderTraversal();
+	// std::cout << std::endl << "PostOrder Traversal: ";
+	// tree.PostOrderTraversal();
+	// std::cout << std::endl;
+	tree.Display();
 	
 return 0;
 }

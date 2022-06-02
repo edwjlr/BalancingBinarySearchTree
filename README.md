@@ -7,11 +7,13 @@ Functions:
 - void RemoveNode(int);
 - bool Search(int);
 - int Height(int);
+- void Balance();
+- void Display();
   
 Classes:
 - Node
 - Tree
 
 To-Do (Priority 1-3)
-- void Balance();
+- clean Balance function
 - void Vizualize();
