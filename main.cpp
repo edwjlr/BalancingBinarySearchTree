@@ -12,13 +12,13 @@ int main(){
 	tree.Insert(4);
 	tree.Insert(7);
 
-	// tree.RemoveNode(7);
-	// tree.RemoveNode(1);
-	// tree.RemoveNode(3);
-	// tree.RemoveNode(4);
-	// tree.RemoveNode(8);
-	// tree.RemoveNode(6);
-	// tree.RemoveNode(2);
+	tree.RemoveNode(1);
+	tree.RemoveNode(3);
+	tree.RemoveNode(2);
+	tree.RemoveNode(6);
+	tree.RemoveNode(8);
+	tree.RemoveNode(4);
+	tree.RemoveNode(7);
 	
 	//Print Tree Traversal
 	std::cout << "InOrder Traversal: ";
