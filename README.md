@@ -11,6 +11,9 @@ To Implement:
 - Balance Tree
 - Vizualise Tree
 
+Classes:
+- Node
+- Tree
+
 To-Do (Priority 1-3)
-- (1) Clean Code
 - (2) Implement Remaining functions
