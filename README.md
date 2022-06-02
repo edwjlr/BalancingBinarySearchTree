@@ -13,5 +13,4 @@ To Implement:
 
 To-Do (Priority 1-3)
 - (1) Clean Code
-- (1) Node class seperated from tree class
 - (2) Implement Remaining functions
