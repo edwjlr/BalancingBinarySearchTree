@@ -7,17 +7,49 @@ class Node{
 		Node* parent;
 		Node* left;
 		Node* right;
+		Node* root;
+		void PreOrderTraversal();
+		void InOrderTraversal();
+		void PostOrderTraversal();
+		void Insert(int );
+		void RemoveNode(int );
 		
 		Node(int value){
 			data = value;
-			parent = NULL;
-			left = NULL;
-			right = NULL;
+			parent = nullptr;
+			left = nullptr;
+			right = nullptr;
+			root = nullptr;
 		}
+		Node(){
+			parent = nullptr;
+			left = nullptr;
+			right = nullptr;
+			root = nullptr;
+		}
+
+	private:
+		void PreOrderTraversal(Node*);
+		void InOrderTraversal(Node*);
+		void PostOrderTraversal(Node*);
+		Node* Insert(Node*, int);
+		void RemoveNode(Node*, int);
 };
 
-void PreOrderTraversal(class Node* node){
-	if(node == NULL){
+void Node::PreOrderTraversal(){
+	PreOrderTraversal(this->root);
+}
+
+void Node::InOrderTraversal(){
+	InOrderTraversal(this->root);
+}
+
+void Node::PostOrderTraversal(){
+	PostOrderTraversal(this->root);
+}
+
+void Node::PreOrderTraversal(class Node* node){
+	if(node == nullptr){
 		return;
 	}
 
@@ -27,8 +59,8 @@ void PreOrderTraversal(class Node* node){
 	PreOrderTraversal(node->right);
 }
 
-void InOrderTraversal(class Node* node){
-	if(node == NULL){
+void Node::InOrderTraversal(class Node* node){
+	if(node == nullptr){
 		return;
 	}
 	
@@ -38,8 +70,8 @@ void InOrderTraversal(class Node* node){
 	InOrderTraversal(node->right);
 }
 
-void PostOrderTraversal(class Node* node){
-	if(node == NULL){
+void Node::PostOrderTraversal(class Node* node){
+	if(node == nullptr){
 		return;
 	}
 	
@@ -49,30 +81,42 @@ void PostOrderTraversal(class Node* node){
 	std::cout << node->data << " ";
 }
 
-Node* InsertNode(class Node* node, int input){
-	
-	if (node == NULL){
-		return new Node(input);
+void Node::Insert(int input){
+	Insert(root, input);
+}
+
+Node* Node::Insert(class Node* node, int input){
+	if (node == nullptr){
+		node = new Node(input);
+		if(root == nullptr)
+		root = node;
 	}else if (input < node->data){
-		Node *temp = InsertNode(node->left, input);
+		Node *temp = Insert(node->left, input);
 		node->left = temp;
 		temp->parent = node;
 	}else if (input > node->data){
-		Node *temp = InsertNode(node->right, input);
+		Node *temp = Insert(node->right, input);
 		node->right = temp;
 		temp->parent = node;
 	}
 	return node;
 }
 
-void RemoveNode(class Node* node, int input){
-	if (node == NULL){
+void Node::RemoveNode(int input){
+	RemoveNode(root, input);
+}
+
+void Node::RemoveNode(class Node* node, int input){
+	if (node == nullptr){
 		return;
 	}
 	if (input == node->data){
 		//case 1, no children
 		if (node->left == nullptr && node->right == nullptr){
-			if(node->parent->right == node){
+			if(node->parent == nullptr){
+				root = nullptr;
+			}
+			else if(node->parent->right == node){
 				node->parent->right = nullptr;
 			}else{
 				node->parent->left = nullptr;
@@ -85,8 +129,16 @@ void RemoveNode(class Node* node, int input){
 			//if node->right != null
 			//node->parent->child(left/right) = node->right
 			//node->right->parent = node -> parent
-
-			if(node->left != nullptr ){
+			if (node->parent == nullptr){
+				if(node->left != nullptr){
+					node->left->parent = nullptr;
+					root = node->left;
+				}else{
+					node->right->parent = nullptr;
+					root = node->right;
+				}
+			}
+			else if(node->left != nullptr ){
 				node->left->parent = node->parent;
 				if(node->parent->right == node){
 					node->parent->right = node->left;
@@ -126,24 +178,24 @@ void RemoveNode(class Node* node, int input){
 
 int main(){
 	//Build Tree
-	Node* root = NULL;
-	root = InsertNode(root, 1);
-	InsertNode(root, 3);
-	InsertNode(root, 2);
-	InsertNode(root, 6);
-	InsertNode(root, 8);
-	InsertNode(root, 4);
-	InsertNode(root, 7);
+	Node tree;
+	tree.Insert(1);
+	tree.Insert(3);
+	tree.Insert(2);
+	tree.Insert(6);
+	tree.Insert(8);
+	tree.Insert(4);
+	tree.Insert(7);
 
-	RemoveNode(root, 7);
+	tree.RemoveNode(7);
 	
 	//Print Tree Traversal
 	std::cout << "InOrder Traversal: ";
-	InOrderTraversal(root);
+	tree.InOrderTraversal();
 	std::cout << std::endl << "PreOrder Traversal: ";
-	PreOrderTraversal(root);
+	tree.PreOrderTraversal();
 	std::cout << std::endl << "PostOrder Traversal: ";
-	PostOrderTraversal(root);
+	tree.PostOrderTraversal();
 	std::cout << std::endl;
 	
 return 0;
