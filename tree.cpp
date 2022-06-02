@@ -38,7 +38,7 @@ void Tree::PostOrderTraversal(){
 	return;
 }
 
-void Tree::PreOrderTraversal(Node* node){
+void Tree::PreOrderTraversal(Node *node){
 	if(node == nullptr){
 		return;
 	}
@@ -49,7 +49,7 @@ void Tree::PreOrderTraversal(Node* node){
 	PreOrderTraversal(node->right);
 }
 
-void Tree::InOrderTraversal(Node* node){
+void Tree::InOrderTraversal(Node *node){
 	if(node == nullptr){
 		return;
 	}
@@ -60,7 +60,7 @@ void Tree::InOrderTraversal(Node* node){
 	InOrderTraversal(node->right);
 }
 
-void Tree::PostOrderTraversal(Node* node){
+void Tree::PostOrderTraversal(Node *node){
 	if(node == nullptr){
 		return;
 	}
@@ -75,7 +75,7 @@ void Tree::Insert(int input){
 	Insert(root, input);
 }
 
-Node* Tree::Insert(Node* node, int input){
+Node *Tree::Insert(Node *node, int input){
     //base case: at empty node
 	if (node == nullptr){
 		node = new Node(input);
@@ -102,7 +102,7 @@ void Tree::RemoveNode(int input){
 	RemoveNode(root, input);
 }
 
-void Tree::RemoveNode(Node* node, int input){
+void Tree::RemoveNode(Node *node, int input){
     //base case: empty node
 	if (node == nullptr){
 		free(node);

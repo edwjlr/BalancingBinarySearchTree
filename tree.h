@@ -14,13 +14,13 @@ class Tree{
         ~Tree();
 
     private:
-		Node* root;
+		Node *root;
 
-        void PreOrderTraversal(Node*);
-		void InOrderTraversal(Node*);
-		void PostOrderTraversal(Node*);
-		Node* Insert(Node*, int);
-		void RemoveNode(Node*, int);
+        void PreOrderTraversal(Node *);
+		void InOrderTraversal(Node *);
+		void PostOrderTraversal(Node *);
+		Node *Insert(Node *, int);
+		void RemoveNode(Node *, int);
 };
 
 #endif
