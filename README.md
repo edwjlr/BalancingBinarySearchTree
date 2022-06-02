@@ -1,4 +1,4 @@
-# BST Tree
+# Balancing Binary Search Tree (BST)
 Functions:
 - void PreOrderTraversal();
 - void InOrderTraversal();
