@@ -3,11 +3,6 @@
 //class binary tree node, also creates nodes
 class Node{
 	public:
-		int data;
-		Node* parent;
-		Node* left;
-		Node* right;
-		Node* root;
 		void PreOrderTraversal();
 		void InOrderTraversal();
 		void PostOrderTraversal();
@@ -19,16 +14,18 @@ class Node{
 			parent = nullptr;
 			left = nullptr;
 			right = nullptr;
-			root = nullptr;
 		}
 		Node(){
-			parent = nullptr;
-			left = nullptr;
-			right = nullptr;
 			root = nullptr;
 		}
+		~Node();
 
 	private:
+		int data;
+		Node* parent;
+		Node* left;
+		Node* right;
+		Node* root;
 		void PreOrderTraversal(Node*);
 		void InOrderTraversal(Node*);
 		void PostOrderTraversal(Node*);
@@ -36,16 +33,36 @@ class Node{
 		void RemoveNode(Node*, int);
 };
 
+Node::~Node(){
+	while(root!= nullptr){
+		RemoveNode(root, root->data);
+	}
+}
 void Node::PreOrderTraversal(){
-	PreOrderTraversal(this->root);
+	if(root == nullptr){
+		std::cout << "Empty Tree";
+	}else{
+		PreOrderTraversal(this->root);
+	}
+	return;
 }
 
 void Node::InOrderTraversal(){
-	InOrderTraversal(this->root);
+	if(root == nullptr){
+		std::cout << "Empty Tree";
+	}else{
+		InOrderTraversal(this->root);
+	}
+	return;
 }
 
 void Node::PostOrderTraversal(){
-	PostOrderTraversal(this->root);
+	if(root == nullptr){
+		std::cout << "Empty Tree";
+	}else{
+		PostOrderTraversal(this->root);
+	}
+	return;
 }
 
 void Node::PreOrderTraversal(class Node* node){
@@ -108,6 +125,7 @@ void Node::RemoveNode(int input){
 
 void Node::RemoveNode(class Node* node, int input){
 	if (node == nullptr){
+		free(node);
 		return;
 	}
 	if (input == node->data){
@@ -188,6 +206,12 @@ int main(){
 	tree.Insert(7);
 
 	tree.RemoveNode(7);
+	tree.RemoveNode(1);
+	tree.RemoveNode(3);
+	tree.RemoveNode(4);
+	tree.RemoveNode(8);
+	tree.RemoveNode(6);
+	tree.RemoveNode(2);
 	
 	//Print Tree Traversal
 	std::cout << "InOrder Traversal: ";
