@@ -4,13 +4,13 @@
 int main(){
 	//Build Tree
 	Tree tree;
-	// tree.Insert(20);
-	// tree.Insert(3);
-	// tree.Insert(2);
-	// tree.Insert(6);
-	// tree.Insert(8);
-	// tree.Insert(4);
-	// tree.Insert(7);
+	tree.Insert(20);
+	tree.Insert(3);
+	tree.Insert(2);
+	tree.Insert(6);
+	tree.Insert(8);
+	tree.Insert(4);
+	tree.Insert(7);
 
 	// tree.Remove(1);
 	// tree.Remove(3);
@@ -31,6 +31,8 @@ int main(){
 
 	//Searching for value
 	std::cout << "Search: " << tree.Search(20) << std::endl;
+
+	std::cout << "Height: " << tree.Height(8) << std::endl;
 	
 return 0;
 }

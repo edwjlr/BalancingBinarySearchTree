@@ -6,11 +6,11 @@ Functions:
 - void Insert(int);
 - void RemoveNode(int);
 - bool Search(int);
+- int Height(int);
   
 To Implement:
 - void Balance();
 - void Vizualize();
-- int height(int);
 
 Classes:
 - Node

@@ -217,3 +217,42 @@ bool Tree::Search(Node *node, int value){
     }
     return false;
 }
+
+Node* Tree::SearchNode(Node* node, int value){
+    //Base case: not correct node
+    if (node == nullptr){
+        return nullptr;
+    }
+    //case 1: found correct node
+    else if (node->getData() == value){
+        return node;
+    }
+    //case 2: value < node's value
+    else if (value < node->getData() && node->left != nullptr){
+        return SearchNode(node->left, value);
+    }
+    //case 3: value > node's value
+    else if (value > node->getData() && node->right != nullptr){
+        return SearchNode(node->right, value);
+
+    }
+    return nullptr;
+}
+
+int Tree::Height(int value){
+    //return max height of value
+    return Height(SearchNode(root, value));
+}
+
+int Tree::Height(Node *node){
+    //base case: empty node
+    if(node == nullptr){
+        return 0;
+    }else{
+        //recursively find height
+        int leftHeight = Height(node->left);
+        int rightHeight = Height(node->right);
+        //return biggest subtree height
+        return std::max(leftHeight, rightHeight) + 1;
+    }
+}

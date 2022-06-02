@@ -11,6 +11,7 @@ class Tree{
 		void Insert(int);
 		void Remove(int);
 		bool Search(int);
+		int Height(int);
         Tree();
         ~Tree();
 
@@ -23,6 +24,8 @@ class Tree{
 		Node *Insert(Node *, int);
 		void Remove(Node *, int);
 		bool Search(Node *, int);
+		int Height(Node *);
+		Node *SearchNode(Node *, int);
 };
 
 #endif
