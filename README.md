@@ -1,15 +1,16 @@
 # BST Tree
 Functions:
-- void PreOrderTraversal(class Node* node)
-- void InOrderTraversal(class Node* node)
-- void PostOrderTraversal(class Node* node)
-- Node* InsertNode(class Node* node, int input)
-- Node* RemoveNode(class Node* node, int input)
+- void PreOrderTraversal();
+- void InOrderTraversal();
+- void PostOrderTraversal();
+- void Insert(int);
+- void RemoveNode(int);
   
 To Implement:
-- Node* SearchNode(class Node* node, int input, class Node* temp)
-- Balance Tree
-- Vizualise Tree
+- void Search(int input);
+- void Balance();
+- void Vizualize();
+- int height(int);
 
 Classes:
 - Node
