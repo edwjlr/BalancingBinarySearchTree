@@ -1,4 +1,4 @@
-# BST Tree
+# Balancing Binary Search Tree (BST)
 Functions:
 - void PreOrderTraversal();
 - void InOrderTraversal();
@@ -15,5 +15,6 @@ Classes:
 - Tree
 
 To-Do (Priority 1-3)
-- clean Balance function
-- edit main to build tree on user inputs
+- (1) clean Balance function
+- (2) edit main to build tree on user inputs
+
