@@ -9,6 +9,7 @@ class Tree{
 		void PreOrderTraversal();
 		void InOrderTraversal();
 		void PostOrderTraversal();
+
 		void Insert(int);
 		void Remove(int);
 		bool Search(int);
