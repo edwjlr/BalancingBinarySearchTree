@@ -274,7 +274,7 @@ void Tree::BuildVector(Node *node, std::vector<int> &nodesVector){
         return;
     }
 	
-    //iddle node root
+    //insert middle node
     int mid = (start + end)/2;
     Insert(nodesVector[mid]);
 

@@ -16,5 +16,4 @@ Classes:
 
 To-Do (Priority 1-3)
 - (1) clean Balance function
-- (2) edit main to build tree on user inputs
 
